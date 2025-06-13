@@ -1,26 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Simple Website</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Helen Lu</title>
   <style>
     body {
-      font-family: sans-serif;
-      padding: 2rem;
-      background-color: #f8f8f8;
-      text-align: center;
-    }
-    h1 {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding-top: 60px;
     }
+
+    .container {
+      max-width: 600px;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.2em;
+    }
+
     p {
+      font-size: 1.1em;
       color: #666;
+    }
+
+    .links {
+      margin-top: 30px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: white;
+      background-color: #0077cc;
+      transition: background-color 0.2s ease;
+    }
+
+    .links a:hover {
+      background-color: #005fa3;
+    }
+
+    .footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+
+    img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to My Website!</h1>
-  <p>This site is hosted with ❤️ on GitHub Pages.</p>
+  <div class="container">
+    <img src="https://avatars.githubusercontent.com/u/helenhl20" alt="Your profile photo" />
+    <h1>Helen Lu</h1>
+    <p>Product Manager | Data Scientist | Builder of thoughtful experiences</p>
+
+    <div class="links">
+      <a href="https://github.com/helenhl20" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/helenhlu/" target="_blank">LinkedIn</a>
+      <a href="mailto:helen_lu@berkeley.edu">Email Me</a>
+      <!-- Optional Resume Link -->
+      <!-- <a href="your-resume.pdf" target="_blank">Resume</a> -->
+    </div>
+
+    <div class="footer">
+      © 2025 Helen Lu · Powered by GitHub Pages
+    </div>
+  </div>
 </body>
 </html>
