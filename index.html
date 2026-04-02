@@ -3,123 +3,263 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Helen Lu" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>Helen Lu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #1e1c1c;
+      --cream: #f5f4ee;
+      --muted: #9a9688;
+      --accent: #c9a97a;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff8f2;
-      color: #4b3832;
+      background-color: var(--black);
+      color: var(--cream);
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ── */
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    /* ── Header ── */
+    header {
+      margin-bottom: 80px;
+    }
+
+    header h1 {
+      font-family: 'Lora', serif;
+      font-weight: 500;
+      font-size: 2.6rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      margin-bottom: 10px;
+    }
+
+    header .role {
+      font-size: 1rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Divider ── */
+    hr {
+      border: none;
+      border-top: 1px solid #2e2c2c;
+      margin: 56px 0;
+    }
+
+    /* ── Sections ── */
+    section {
+      margin-bottom: 64px;
+    }
+
+    .label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    /* ── About ── */
+    .about p {
+      font-size: 1.2rem;
+      font-family: 'Lora', serif;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--cream);
+      opacity: 0.9;
+    }
+
+    /* ── Projects ── */
+    .project-list {
+      list-style: none;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      flex-direction: column;
+      gap: 36px;
     }
 
-    .container {
-      background-color: #fff3e0;
-      padding: 40px;
-      border-radius: 12px;
-      max-width: 800px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
-
-    img {
-      width: 100%;
-      border-radius: 12px;
-      object-fit: cover;
-    }
-
-    h1 {
-      margin: 0 0 10px;
-      font-size: 2.2em;
-      color: #3e2723;
-    }
-
-    h2 {
-      margin-top: 0;
-      font-size: 1.2em;
-      font-weight: normal;
-      color: #6d4c41;
-    }
-
-    p {
-      font-size: 1em;
-      color: #5d4037;
-      line-height: 1.6;
-    }
-
-    ul {
+    .project-list li {
+      border-left: 2px solid #2e2c2c;
       padding-left: 20px;
-      margin: 0;
+      transition: border-color 0.2s;
     }
 
-    .buttons {
-      margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+    .project-list li:hover {
+      border-color: var(--accent);
     }
 
-    .buttons a {
-      padding: 10px 20px;
-      border-radius: 6px;
+    .project-name {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .project-name a {
+      color: inherit;
       text-decoration: none;
-      font-weight: bold;
-      color: #fff;
-      background-color: #a1887f;
-      transition: background-color 0.3s;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
     }
 
-    .buttons a:hover {
-      background-color: #8d6e63;
+    .project-name a:hover {
+      border-color: var(--accent);
     }
 
-    @media (max-width: 700px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── Education ── */
+    .edu-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .edu-list li .degree {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 2px;
+    }
+
+    .edu-list li .school {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* ── Links ── */
+    .links {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .links a {
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      border-bottom: 1px solid #2e2c2c;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .links a:hover {
+      color: var(--cream);
+      border-color: var(--cream);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .page { padding: 56px 24px 80px; }
+      header h1 { font-size: 2rem; }
+      .about p { font-size: 1.05rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div>
+  <div class="page">
+
+    <header>
       <h1>Helen Lu</h1>
-      <h2>Meta AI @ Meta</h2>
+      <p class="role">Meta AI @ Meta</p>
+    </header>
 
-      <h3>About Me</h3>
-      <p>Combining builder (PM), analytics (DS), and ops expertise to improve end user product experiences.</p>
+    <section class="about">
+      <p class="label">About</p>
+      <p>Builder, analyst, and operator. I combine product thinking with data science and a knack for turning ambiguity into clear execution — currently focused on AI at Meta.</p>
+    </section>
 
-      <h3>Projects</h3>
-      <ul>
-        <li><a href="https://github.com/helenhl20/dailyair" target="_blank">DailyAir</a> — AI-powered morning briefing agent that curates newsletters, YouTube, and podcasts into a daily audio digest</li>
-        <li>Floob — personal AI news agent on Telegram delivering daily digests across Substacks, podcasts, and social</li>
-        <li>Flight delay prediction model using PySpark and MLlib on the OTPW dataset</li>
-        <li>Privacy Agent script using LLM to spot online email exposures</li>
-        <li>2025 WNBA classification model with TensorFlow</li>
-        <li>Life expectancy regression model in R</li>
-        <li>monday.com 🤝 email integration</li>
+    <hr />
+
+    <section class="projects">
+      <p class="label">Projects</p>
+      <ul class="project-list">
+        <li>
+          <p class="project-name"><a href="https://github.com/helenhl20/dailyair" target="_blank">DailyAir</a></p>
+          <p class="project-desc">AI-powered morning briefing agent that curates newsletters, YouTube, and podcasts into a personalized daily audio digest.</p>
+        </li>
+        <li>
+          <p class="project-name">Floob</p>
+          <p class="project-desc">Personal AI news agent on Telegram delivering daily digests across Substacks, podcasts, and social media.</p>
+        </li>
+        <li>
+          <p class="project-name">Flight Delay Prediction</p>
+          <p class="project-desc">Machine learning model using PySpark and MLlib on the OTPW dataset to predict flight delays at scale.</p>
+        </li>
+        <li>
+          <p class="project-name">Privacy Agent</p>
+          <p class="project-desc">LLM-powered script that detects and flags online email exposures.</p>
+        </li>
+        <li>
+          <p class="project-name">2025 WNBA Classifier</p>
+          <p class="project-desc">TensorFlow classification model built on 2025 WNBA season data.</p>
+        </li>
+        <li>
+          <p class="project-name">Life Expectancy Model</p>
+          <p class="project-desc">Regression analysis of global life expectancy factors in R.</p>
+        </li>
+        <li>
+          <p class="project-name">monday.com Email Integration</p>
+          <p class="project-desc">Automated email-to-board integration for monday.com workflows.</p>
+        </li>
       </ul>
+    </section>
 
-      <h3>Education</h3>
-      <p>M.S. in Data Science<br>University of California, Berkeley</p>
-      <p>B.A. in Organizational Behaviors, Computer Science<br>Northwestern University</p>
+    <hr />
 
-      <div class="buttons">
+    <section class="education">
+      <p class="label">Education</p>
+      <ul class="edu-list">
+        <li>
+          <p class="degree">M.S. in Data Science</p>
+          <p class="school">University of California, Berkeley</p>
+        </li>
+        <li>
+          <p class="degree">B.A. in Organizational Behavior & Computer Science</p>
+          <p class="school">Northwestern University</p>
+        </li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <section>
+      <p class="label">Connect</p>
+      <div class="links">
         <a href="https://www.linkedin.com/in/helenhlu/" target="_blank">LinkedIn</a>
         <a href="https://github.com/helenhl20" target="_blank">GitHub</a>
         <a href="mailto:helenhlu89@gmail.com">Email</a>
       </div>
-    </div>
+    </section>
 
-    <div>
-      <img src="https://github.com/helenhl20.png" alt="Helen Lu portrait" />
-    </div>
   </div>
 </body>
 </html>
